@@ -1,0 +1,20 @@
+<div class="container">
+  <h1> Welcome to codys bus stop app </h1>
+
+  <%= link_to "New Bus Lines", new_line_path, :class=> "btn btn-default" %>
+
+  <ul>
+    <% @lines.each do |line| %>
+      <li><%= link_to line.name, line_path(line) %> | <%= link_to "Edit", edit_line_path(line) %> | <%= link_to "Delete", line_path(line), :method => 'delete' %></li>
+    <% end %>
+  </ul>
+  </br>
+  <%= link_to "New Bus Station", new_station_path, :class=> "btn btn-default" %>
+  <ul>
+    <% @stations.each do |station| %>
+      <li><%= link_to station.name, station_path(station) %> | <%= link_to "Edit", edit_station_path(station) %> | <%= link_to "Delete", station_path(station), :method => 'delete' %></li>
+    <% end %>
+  </ul>
+
+  <%= link_to "Visualize the routes", stops_path %>
+</div>

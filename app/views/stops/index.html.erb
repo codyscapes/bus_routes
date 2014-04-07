@@ -1,0 +1,11 @@
+<div class="container">
+  <h1> All Stops </h1>
+
+  <% @stops.each do |stop| %>
+    <li> <span class="stop" id="<%="#{stop.id}"%>"> <%= stop.id %></span> | <span class="station" id="<%="#{stop.station_id}"%>"> <%= stop.station.name %> </span>| <span class="line"id=<%="#{stop.line_id}"%></span> <%= stop.line.name %>
+</li>
+  <% end %>
+</div>
+
+
+

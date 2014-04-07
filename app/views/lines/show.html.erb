@@ -1,0 +1,22 @@
+<div class = "container">
+  <h1> Here are the stops for <strong><%= @line.name %></strong></h1>
+</br>
+  <ul>
+  <% @stops.each do |stop| %>
+    <li> <%= stop.id %> | Station: <%= Station.find(stop.station_id).name %> | </li>
+  <% end %>
+  </ul>
+
+</br>
+  <h2> add a station that services this line </h2>
+  <%= form_for(@stop) do |f|  %>
+    <div class="form-group">
+      <%= f.collection_select(:station_id, Station.all, :id, :name) %>
+      <%= f.hidden_field :line_id, :value => @line.id %>
+    </div>
+    <%= f.submit(:class => "btn btn-primary") %>
+  <% end %>
+
+
+</div>
+
